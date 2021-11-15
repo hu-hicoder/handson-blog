@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>開発環境にアクセスできることを確認する - チーム開発でブログを作ろう</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="title.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">2.</strong> 完成形のイメージ</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">3.</strong> 環境構築をしよう</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_2-github.html"><strong aria-hidden="true">3.1.</strong> GitHubへの登録、HiCoder Organizationへの登録</a></li><li class="chapter-item expanded "><a href="chapter_2-editor.html"><strong aria-hidden="true">3.2.</strong> 開発に必要なエディタの導入</a></li><li class="chapter-item expanded "><a href="chapter_2-wsl2.html"><strong aria-hidden="true">3.3.</strong> 開発環境のためにWSL2を導入</a></li><li class="chapter-item expanded "><a href="chapter_2-docker.html"><strong aria-hidden="true">3.4.</strong> docker、docker-composeを導入</a></li><li class="chapter-item expanded "><a href="chapter_2-development.html" class="active"><strong aria-hidden="true">3.5.</strong> 開発環境にアクセスできることを確認する</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">4.</strong> フロントエンドを見てみよう</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">5.</strong> バックエンドを見てみよう</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">6.</strong> フロントエンドに機能追加をしてみよう</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">7.</strong> バックエンドに機能追加をしてみよう</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">8.</strong> IssueやPRを立ててみよう</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">9.</strong> この後の進み方</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">チーム開発でブログを作ろう</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="開発環境にアクセスできることを確認する"><a class="header" href="#開発環境にアクセスできることを確認する">開発環境にアクセスできることを確認する</a></h1>
+<p>ここでは、以下のことができればOKです。</p>
+<ul>
+<li>gitを導入し、GitHubにWSLの方でつながるようにする。</li>
+<li>GitHubからblogの雛形を取ってきて、WSLの方でdocker、docker-composeを用いて立ち上げる。</li>
+<li>npmを導入し、フロントエンドサーバを立ち上げる。</li>
+</ul>
+<h2 id="手順-gitの導入とgithubへの疎通"><a class="header" href="#手順-gitの導入とgithubへの疎通">手順: gitの導入とGitHubへの疎通</a></h2>
+<ul>
+<li>GitHubは、自分のソースコードを世界に公開するためのプラットフォームです。最近はインターンや就活で、自分はこれまでこんなことやってきました！と自分の実力や興味関心を伝える手段としても重要視されてきている気がします。積極的に使っていきましょう。</li>
+<li>gitにnameとemailを登録します。nameはGitHubのアカウント名、emailはGitHubに登録するときに使ったものを使ってください</li>
+</ul>
+<pre><code>git config --global user.name &quot;自分の名前&quot;
+git config --global user.email &quot;メール@example.com&quot;
+</code></pre>
+<p>次にWSL側では、鍵を生成します。</p>
+<pre><code>mkdir ~/.ssh
+cd ~/.ssh
+ssh-keygen -t rsa
+</code></pre>
+<p>Nameは<code>github_key</code>, passphraseは指定しなくていいです。</p>
+<p><code>~/.ssh</code>を確認します。</p>
+<pre><code>ls
+</code></pre>
+<p>ファイルがあればOKです。</p>
+<p>権限を変更します</p>
+<pre><code>chmod 600 github_key
+</code></pre>
+<p>次に、GitHub側に公開鍵を伝えます</p>
+<pre><code>cat github_key.pub
+</code></pre>
+<p>出てきた内容をコピーして、GitHub&gt;Settings&gt;SSH and GPG keys&gt;New SSH Keyから追加。</p>
+<p>configを作ります</p>
+<pre><code>touch config
+code ./config
+</code></pre>
+<p>configに書き込む内容</p>
+<pre><code>Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/github_key
+</code></pre>
+<p>configの権限を変更します</p>
+<pre><code>chmod 600 config
+</code></pre>
+<p>sshが通るか確認します</p>
+<pre><code>ssh -T git@github.com
+</code></pre>
+<p><code>Hi &lt;username&gt;! You've successfully authenticated, but GitHub does not provide shell access.</code>みたいなのが出たらOKです。お疲れさまでした。</p>
+<p>うまくいかない場合は、エラーメッセージを調べてみて15分たっても分からなければ質問してみましょう。</p>
+<h2 id="手順-dockerでblogの雛形を立ち上げて確認する"><a class="header" href="#手順-dockerでblogの雛形を立ち上げて確認する">手順: dockerでblogの雛形を立ち上げて確認する</a></h2>
+<p>blogの雛形はこちらです。<a href="https://github.com/hu-hicoder/blog/tree/handson">hu-hicoder/blog:handson</a> ここでは、handsonブランチを使います。</p>
+<p>はじめに、<code>git clone</code>でblogの雛形を取ってきます。</p>
+<pre><code>cd ~
+git clone -b handson git@github.com:hu-hicoder/blog.git
+cd blog
+ls
+</code></pre>
+<p>以下のような表示がされていればOKです。</p>
+<pre><code>$ ls
+blog-editor  blog-public  blog-style  LICENSE  README.md
+</code></pre>
+<p>では、続いてdocker, docker-composeを使ってプロジェクトを立ち上げます。</p>
+<pre><code>cd blog-public/scripts/docker/
+sudo docker-compose up
+</code></pre>
+<p>以下のような表示がされていればOKです。</p>
+<pre><code>...(省略)...
+docker-backend-1  |    ____    __
+docker-backend-1  |   / __/___/ /  ___
+docker-backend-1  |  / _// __/ _ \/ _ \
+docker-backend-1  | /___/\__/_//_/\___/ v4.6.1
+docker-backend-1  | High performance, minimalist Go web framework
+docker-backend-1  | https://echo.labstack.com
+docker-backend-1  | ____________________________________O/_______
+docker-backend-1  |                                     O\
+docker-backend-1  | ⇨ http server started on [::]:3001
+</code></pre>
+<p>ブラウザで <a href="http://localhost:3000/">http://localhost:3000/</a> にアクセスしてみてください。以下のような表示がされていればOKです。</p>
+<p><img src="./img/image-4.jpg" alt="image-4" /></p>
+<p>サーバを落とすときは、<code>Ctrl+c</code>で止めた後に</p>
+<pre><code>docker-compose down
+</code></pre>
+<p>としてください。</p>
+<h2 id="手順-npmを導入しフロントエンドサーバを立ち上げる"><a class="header" href="#手順-npmを導入しフロントエンドサーバを立ち上げる">手順: npmを導入し、フロントエンドサーバを立ち上げる</a></h2>
+<p>前回のdockerではデータベース用のサーバとバックエンド用のサーバが立ち上がっています。フロントエンドだけはDockerでの開発が向かないと思われるので、別で立ち上げます。</p>
+<p>まず、npmというフロントエンド開発のためのツールを導入します。今回はこのツールを<a href="https://github.com/hokaccha/nodebrew">nodebrew</a>経由でインストールします。</p>
+<pre><code>curl -L git.io/nodebrew | perl - setup
+code ~/.bashrc
+</code></pre>
+<p>bashrcを開いたら、以下を一番後ろに追記します。</p>
+<pre><code>export PATH=$HOME/.nodebrew/current/bin:$PATH
+</code></pre>
+<p>そしてターミナルで以下を実行します</p>
+<pre><code>source ~/.bashrc
+</code></pre>
+<p>これで設定は完了です。npmをインストールします。基本的に<code>ls, ls-remote, install-binary, use</code>を覚えていればよいです。詳しくは<a href="https://github.com/hokaccha/nodebrew">公式ページ</a>を見てください。</p>
+<pre><code class="language-sh"># node,npmの検索
+nodebrew ls-remote
+# バージョンを選んでインストール
+nodebrew install-binary v16.13.0
+# ローカルで使うバージョンを指定
+nodebrew use v16.13.0
+</code></pre>
+<p>インストールが成功したか確認します。</p>
+<pre><code>node -v
+</code></pre>
+<p>以下のように表示されていればOKです。</p>
+<pre><code>$ node -v
+v16.13.0
+</code></pre>
+<p>別のターミナルで<code>docker-compose up</code>している状態で、もう一つターミナルを立ち上げて</p>
+<pre><code>cd blog-public/frontend
+npm i
+npm run dev
+</code></pre>
+<p>としてフロントエンドサーバを立ち上げます。ブラウザで <a href="http://localhost:8080/">http://localhost:8080/</a>にアクセスし、以下のように表示されていればOKです</p>
+<p><img src="./img/image-5.jpg" alt="image-5" /></p>
+<p>サーバを止めるときは<code>Ctrl+c</code>でOKです。バックエンドのdockerも落とすことを忘れずに。</p>
+<h2 id="確認テスト"><a class="header" href="#確認テスト">確認テスト</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"/>
+gitを導入し、GitHubにつながることを確認した</li>
+<li><input disabled="" type="checkbox"/>
+dockerでblogの雛形を立ち上げて、ブラウザでアクセスして確認した</li>
+<li><input disabled="" type="checkbox"/>
+npmを導入して、フロントエンドサーバを立ち上げた</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_2-docker.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="chapter_3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_2-docker.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="chapter_3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
