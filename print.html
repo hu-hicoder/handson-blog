@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="title.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">2.</strong> 完成形のイメージ</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">3.</strong> 環境構築をしよう</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_2-github.html"><strong aria-hidden="true">3.1.</strong> GitHubへの登録、HiCoder Organizationへの登録</a></li><li class="chapter-item expanded "><a href="chapter_2-editor.html"><strong aria-hidden="true">3.2.</strong> 開発に必要なエディタの導入</a></li><li class="chapter-item expanded "><a href="chapter_2-wsl2.html"><strong aria-hidden="true">3.3.</strong> 開発環境のためにWSL2を導入</a></li><li class="chapter-item expanded "><a href="chapter_2-docker.html"><strong aria-hidden="true">3.4.</strong> docker、docker-composeを導入</a></li><li class="chapter-item expanded "><a href="chapter_2-development.html"><strong aria-hidden="true">3.5.</strong> 開発環境にアクセスできることを確認する</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">4.</strong> フロントエンドを見てみよう</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">5.</strong> バックエンドを見てみよう</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">6.</strong> フロントエンドに機能追加をしてみよう</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">7.</strong> バックエンドに機能追加をしてみよう</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">8.</strong> IssueやPRを立ててみよう</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">9.</strong> この後の進み方</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="title.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">2.</strong> 完成形のイメージ</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">3.</strong> 環境構築をしよう</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_2-github.html"><strong aria-hidden="true">3.1.</strong> GitHubへの登録、HiCoder Organizationへの登録</a></li><li class="chapter-item expanded "><a href="chapter_2-editor.html"><strong aria-hidden="true">3.2.</strong> 開発に必要なエディタの導入</a></li><li class="chapter-item expanded "><a href="chapter_2-wsl2.html"><strong aria-hidden="true">3.3.</strong> 開発環境のためにWSL2を導入</a></li><li class="chapter-item expanded "><a href="chapter_2-docker.html"><strong aria-hidden="true">3.4.</strong> docker、docker-composeを導入</a></li><li class="chapter-item expanded "><a href="chapter_2-development.html"><strong aria-hidden="true">3.5.</strong> 開発環境にアクセスできることを確認する</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">4.</strong> フロントエンドを見てみよう</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3-intro.html"><strong aria-hidden="true">4.1.</strong> フロントエンドがどういう仕組みで動いているのか知る</a></li><li class="chapter-item expanded "><a href="chapter_3-starter.html"><strong aria-hidden="true">4.2.</strong> 初めに何からコードを読んでいけばいいのか知る</a></li><li class="chapter-item expanded "><a href="chapter_3-todo.html"><strong aria-hidden="true">4.3.</strong> 機能追加の種類を知る</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">5.</strong> バックエンドを見てみよう</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">6.</strong> フロントエンドに機能追加をしてみよう</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">7.</strong> バックエンドに機能追加をしてみよう</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">8.</strong> IssueやPRを立ててみよう</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">9.</strong> この後の進み方</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -138,6 +138,12 @@
                         <h1 id="チーム開発でブログを作ろう-はじめに"><a class="header" href="#チーム開発でブログを作ろう-はじめに">チーム開発でブログを作ろう: はじめに</a></h1>
 <p>この文書では、チーム開発の題材として「ブログ」をとりあげて、Web開発、特にフロントエンド、サーバサイドに関する知識をつけてもらいます。</p>
 <p>簡単なところから説明を行うので、<strong>パソコンと作業に取り組む時間だけ確保していれば、プログラミングが得意でなくても大丈夫です</strong>。一緒に少しずつ学んでいきましょう。</p>
+<h2 id="この教材で扱うこと"><a class="header" href="#この教材で扱うこと">この教材で扱うこと</a></h2>
+<p>プロジェクトのセットアップが終わって各サーバとの連携が取れた程度のブログの雛形が渡されます。この雛形を読んで仕組みを理解し、ブログの機能追加を行います。</p>
+<p>これらの一連の流れを、セットアップなどの最初に躓きがちなところをスキップして習得することで、まず完成形を作りモチベーションを保ったまま学習を継続してもらうことを目的としています。</p>
+<h2 id="この教材で扱わないこと"><a class="header" href="#この教材で扱わないこと">この教材で扱わないこと</a></h2>
+<p>個別の言語の入門など、またツールについての説明は扱いません。(これらはGoogleで検索をかけると僕が書くよりもっと分かりやすい動画、書籍、ブログの記事が出てくるので...)</p>
+<p>基本的に分からないことは検索して欲しいなと思っています。また、検索してこれを新しく知りました、ということは積極的にdiscordで記事など共有してくれたら嬉しいです。</p>
 <h2 id="進め方"><a class="header" href="#進め方">進め方</a></h2>
 <p>基本的に番号順に章を読み進めていってください。左上の横三本の棒のボタンを押すと目次が表示/非表示されます。</p>
 <p>章を読んで確認テストが終わったら、 <a href="https://forms.gle/6FTcE85Evt6VgttZA">こちらのGoogle form</a> から進み具合を報告してみましょう。何か困ったことがあったら、どこまで進んだかと一緒に報告してくれると嬉しいです。</p>
@@ -145,7 +151,7 @@
 <h2 id="確認テスト"><a class="header" href="#確認テスト">確認テスト</a></h2>
 <ul>
 <li><input disabled="" type="checkbox"/>
-パソコンと作業に取り組む時間を用意しましたか？</li>
+パソコンと、作業に取り組む時間を用意しましたか？</li>
 <li><input disabled="" type="checkbox"/>
 進め方がイメージできましたか？</li>
 </ul>
@@ -182,7 +188,12 @@
 <a href="chapter_2-development.html">開発環境にアクセスできることを確認する</a></li>
 </ul>
 <p>ここからひとつひとつは退屈で面倒かもしれません。ですが、必要になるので頑張っていきましょう。</p>
-<p>また、「検索する力」が後々重要となってくるので、ここではそれも身に付けてほしいなと思っています。そのため説明はそれほど丁寧ではないです。たくさん検索をして、分からなかったらdiscordで質問を投げて、検索する力を向上させていってください。</p>
+<p>また、「検索する力」が後々重要となってくるので、ここではそれも身に付けてほしいなと思っています。そのため説明はそれほど丁寧ではないです。<strong>初めて聞いた単語や、エラーメッセージは検索にかけてみて、分からなかったらdiscordで質問を投げて、検索する力を向上させていってください。</strong></p>
+<h2 id="確認テスト-2"><a class="header" href="#確認テスト-2">確認テスト</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"/>
+環境構築で何をすればよいのか理解した</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="githubへの登録hicoder-organizationへの登録"><a class="header" href="#githubへの登録hicoder-organizationへの登録">GitHubへの登録、HiCoder Organizationへの登録</a></h1>
 <p>ここでは、「GitHub」という開発に使うソースコード管理プラットフォームでアカウントを作り、HiCoderの組織に属するように設定をします。</p>
 <h2 id="手順-githubへの登録"><a class="header" href="#手順-githubへの登録">手順: GitHubへの登録</a></h2>
@@ -201,7 +212,7 @@
 <li>確認として、<a href="https://github.com/settings/organizations">https://github.com/settings/organizations</a>を見てみましょう。HiCoderが登録されていればOKです。</li>
 </ul>
 <p>これで完了です。</p>
-<h2 id="確認テスト-2"><a class="header" href="#確認テスト-2">確認テスト</a></h2>
+<h2 id="確認テスト-3"><a class="header" href="#確認テスト-3">確認テスト</a></h2>
 <ul>
 <li><input disabled="" type="checkbox"/>
 GitHubアカウントを作成した</li>
@@ -223,7 +234,7 @@ HiCoder Organizationへの登録が完了した</li>
 <li>このあたりのVSCodeの操作方法は「VSCode 操作方法」などで検索をかけるといいと思います。さきほどの参考記事( <a href="https://ynucpc.github.io/blog/2020/03/24/howtowsl-vscode/">https://ynucpc.github.io/blog/2020/03/24/howtowsl-vscode/</a> )も役に立つでしょう。</li>
 </ul>
 <p>これで完了です。</p>
-<h2 id="確認テスト-3"><a class="header" href="#確認テスト-3">確認テスト</a></h2>
+<h2 id="確認テスト-4"><a class="header" href="#確認テスト-4">確認テスト</a></h2>
 <ul>
 <li><input disabled="" type="checkbox"/>
 エディタを導入して少し使ってみることができた。</li>
@@ -246,7 +257,7 @@ sudo apt upgrade
 <pre><code>uname -a
 </code></pre>
 <p>と打ってEnterを押してみてください。画面に<code>Linux...</code>から始まる文字列が表示されたらOKです。この<code>uname</code>コマンドはOSの種類を確認するコマンドです。</p>
-<h2 id="確認テスト-4"><a class="header" href="#確認テスト-4">確認テスト</a></h2>
+<h2 id="確認テスト-5"><a class="header" href="#確認テスト-5">確認テスト</a></h2>
 <ul>
 <li><input disabled="" type="checkbox"/>
 WSL2を導入し、<code>uname -a</code> の結果を見ることができた</li>
@@ -280,7 +291,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 <pre><code>$ sudo docker-compose -v
 Docker Compose version v2.0.1
 </code></pre>
-<h2 id="確認テスト-5"><a class="header" href="#確認テスト-5">確認テスト</a></h2>
+<h2 id="確認テスト-6"><a class="header" href="#確認テスト-6">確認テスト</a></h2>
 <ul>
 <li><input disabled="" type="checkbox"/>
 docker, docker-composeを導入し、<code>sudo docker ps</code>での確認、<code>sudo docker-compose -v</code>での確認も行った</li>
@@ -404,7 +415,7 @@ npm run dev
 <p>としてフロントエンドサーバを立ち上げます。ブラウザで <a href="http://localhost:8080/">http://localhost:8080/</a>にアクセスし、以下のように表示されていればOKです</p>
 <p><img src="./img/image-5.jpg" alt="image-5" /></p>
 <p>サーバを止めるときは<code>Ctrl+c</code>でOKです。バックエンドのdockerも落とすことを忘れずに。</p>
-<h2 id="確認テスト-6"><a class="header" href="#確認テスト-6">確認テスト</a></h2>
+<h2 id="確認テスト-7"><a class="header" href="#確認テスト-7">確認テスト</a></h2>
 <ul>
 <li><input disabled="" type="checkbox"/>
 gitを導入し、GitHubにつながることを確認した</li>
@@ -414,6 +425,18 @@ dockerでblogの雛形を立ち上げて、ブラウザでアクセスして確�
 npmを導入して、フロントエンドサーバを立ち上げた</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="フロントエンドを見てみよう"><a class="header" href="#フロントエンドを見てみよう">フロントエンドを見てみよう</a></h1>
+<p>ここでは以下のことが達成できればOKです。</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+フロントエンドがどういう仕組みで動いているのか知る</li>
+<li><input disabled="" type="checkbox"/>
+初めに何からコードを読んでいけばいいのか知る</li>
+<li><input disabled="" type="checkbox"/>
+機能追加の種類を知る</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="フロントエンドがどういう仕組みで動いているのか知る"><a class="header" href="#フロントエンドがどういう仕組みで動いているのか知る">フロントエンドがどういう仕組みで動いているのか知る</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="初めに何からコードを読んでいけばいいのか知る"><a class="header" href="#初めに何からコードを読んでいけばいいのか知る">初めに何からコードを読んでいけばいいのか知る</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="機能追加の種類を知る"><a class="header" href="#機能追加の種類を知る">機能追加の種類を知る</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="バックエンドを見てみよう"><a class="header" href="#バックエンドを見てみよう">バックエンドを見てみよう</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="フロントエンドに機能追加をしてみよう"><a class="header" href="#フロントエンドに機能追加をしてみよう">フロントエンドに機能追加をしてみよう</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="バックエンドに機能追加をしてみよう"><a class="header" href="#バックエンドに機能追加をしてみよう">バックエンドに機能追加をしてみよう</a></h1>
