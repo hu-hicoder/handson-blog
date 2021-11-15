@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>チーム開発でブログを作ろう</title>
-        <meta name="robots" content="noindex" />
+        <title>はじめに - チーム開発でブログを作ろう</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -76,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="title.html"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">2.</strong> 完成形のイメージ</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">3.</strong> 環境構築をしよう</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="title.html" class="active"><strong aria-hidden="true">1.</strong> はじめに</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">2.</strong> 完成形のイメージ</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">3.</strong> 環境構築をしよう</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -149,36 +148,23 @@
 <li><input disabled="" type="checkbox"/>
 進め方がイメージできましたか？</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="完成形のイメージ"><a class="header" href="#完成形のイメージ">完成形のイメージ</a></h1>
-<p>今回作るものはブログです。Webサービスでブログが書けるものはたくさんありますが、例えば <a href="https://hatenablog.com/">はてなブログ</a> を見てみましょう。</p>
-<p>「New Entry」というボタンを押すとブログの記事を新規に書き始めることができます。</p>
-<p><img src="./img/image-1.jpg" alt="image-1" /></p>
-<p>以下の赤枠部分にブログの記事の文章を書いて、「publish」ボタンを押すと記事が世の中に公開されます。</p>
-<p><img src="./img/image-2.jpg" alt="image-2" /></p>
-<p>このように、ブログを作るときには以下の機能があればよさそうです。</p>
-<ul>
-<li>ブログを書く編集画面</li>
-<li>ブログを表示する画面</li>
-</ul>
-<p>実際には会員登録の機能などが必要です。しかしここでは一旦コア機能を実装してしまってから考えることにしましょう。このように、サービスの中心的な価値を届ける最小限のプロダクトをMVP(Minimum Viable Product)ということもあります。</p>
-<p><strong>最小限のMVPをまず完成させることを目指しましょう。</strong></p>
-<h2 id="確認テスト-1"><a class="header" href="#確認テスト-1">確認テスト</a></h2>
-<ul>
-<li><input disabled="" type="checkbox"/>
-完成形のイメージが湧きましたか？</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="環境構築をしよう"><a class="header" href="#環境構築をしよう">環境構築をしよう</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="next" href="chapter_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="next" href="chapter_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -194,10 +180,5 @@
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
     </body>
 </html>
