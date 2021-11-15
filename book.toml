@@ -1,0 +1,5 @@
+[book]
+authors = ["Masanori Tani"]
+language = "ja"
+src = "src"
+title = "チーム開発でブログを作ろう"
