@@ -435,7 +435,46 @@ npmを導入して、フロントエンドサーバを立ち上げた</li>
 機能追加の種類を知る</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="フロントエンドがどういう仕組みで動いているのか知る"><a class="header" href="#フロントエンドがどういう仕組みで動いているのか知る">フロントエンドがどういう仕組みで動いているのか知る</a></h1>
+<p>ここではブログの雛形がどういう仕組みで動いているのか、フロントエンドの観点から学びます。</p>
+<p>一般に、Webページはどのようにして私たちのもとに届いているのでしょうか？</p>
+<h2 id="サーバとクライアント"><a class="header" href="#サーバとクライアント">サーバとクライアント</a></h2>
+<p>ここでは、「サーバ」「クライアント」の二つの概念を元に説明します。</p>
+<p>サーバとは、雛形でいうところの <code>npm run dev</code> で立ち上げたフロントエンドサーバです。サーバは一般に、ネットワークを通じたなんらかのリクエストを受け取りレスポンスを返すプログラムを動かしたものです。プログラムを動かしたものをプロセスと言います。サーバは、実態としてはひとつまたは複数のプロセスが動いていて、リクエストがネットワークを通じて飛んでくるのを待っている状態になります。</p>
+<p>クライアントは、雛形でいうところのあなたのブラウザを指します。ブラウザから <a href="http://localhost:8080/">http://localhost:8080/</a> にアクセスして画面を見たと思います。この、ブラウザにURLを打ち込んだ後の処理で、ブラウザからフロントエンドサーバに向けてリクエストが飛んでいます。フロントエンドサーバはリクエストを待ち受けていますから、リクエストがやってきたらそのリクエストの内容に応じてレスポンスを返します。ここでは、htmlファイルというテキストファイルや、JavaScriptが書かれていたり、CSSの書かれているファイルをサーバが返し、クライアントであるブラウザ側で見ることになります。</p>
+<h2 id="typescript"><a class="header" href="#typescript">TypeScript</a></h2>
+<p>TypeScriptはJavaScriptに変換される言語のひとつです。AltJSのひとつという言い方をされることもあります。他のAltJSにはElm, Reasonなどがあります。</p>
+<p>特徴として、漸近的な静的型つけがなされていることがあげられます。通常の使い方をしていれば、JavaScriptに変換するタイミングでコードを書く人がミスをしていたらコンパイルエラーという形で指摘をしてくれます。</p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/intro.html">The TypeScript Handbook</a> が参考になると思います。私はこのHandbookを通しで読んだことはないので、もし興味があればぜひ輪読をしましょう。お声掛けください。</p>
+<h2 id="react"><a class="header" href="#react">React</a></h2>
+<p>フロントエンドはHTML, JavaScript, CSSから構成されます。しかし、プロジェクトが大きくなるにつれて以下の問題が発生しました。</p>
+<ul>
+<li>機能が増えると、共通化を行い部品を使いまわしたい。しかし、UIの共通化は難しい</li>
+<li>データを元に描画を決定したい。具体的には、関数 <code>f</code> にデータを渡した <code>f(data)</code> が描画結果(HTMLの一部分とjsとcss)を返して欲しい。</li>
+</ul>
+<p>これらの課題を解決するためにFacebook(当時、現Meta)が作ったフロントエンド向けライブラリがReactです。Reactは上の課題を解決し、jsxという形でHTMLをJavaScriptの中で書くことができます。jsxはJavaScript版で、tsxはTypeScript版です。<a href="https://github.com/hu-hicoder/blog/blob/handson/blog-public/frontend/src/HelloWorld.tsx">blogの雛形</a>では、以下のようにtsxという形でデータ主導でコードを書くことができます。</p>
+<pre><code class="language-ts">const HelloWorld: React.FC = () =&gt; {
+  // ...省略...
+  return (
+    &lt;&gt;
+      &lt;h1 className=&quot;hello&quot;&gt;Hello World!!&lt;/h1&gt;{&quot; &quot;}
+      {articles &amp;&amp; articles.map(item =&gt; &lt;div key={item.ID}&gt;Author: {item.Author} / Content: {item.Content}&lt;/div&gt;)}
+    &lt;/&gt;
+  );
+};
+</code></pre>
+<p>教材は <a href="https://zenn.dev/likr/articles/6be53ca64f29aa035f07">Reactチュートリアル1：犬画像ギャラリーを作ろう</a> が良い気がしますが、これも私はまだ通して読めてないので興味があれば一緒に輪読しましょう。</p>
+<p>以上でフロントエンドの仕組みは終わりです。次は具体的なコードを眺めていきましょう。</p>
+<h2 id="確認テスト-8"><a class="header" href="#確認テスト-8">確認テスト</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"/>
+サーバとクライアントの概念が自分なりに説明できる</li>
+<li><input disabled="" type="checkbox"/>
+TypeScriptとJavaScriptの関係が自分なりに説明できる</li>
+<li><input disabled="" type="checkbox"/>
+Reactについてなんとなく分かった</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="初めに何からコードを読んでいけばいいのか知る"><a class="header" href="#初めに何からコードを読んでいけばいいのか知る">初めに何からコードを読んでいけばいいのか知る</a></h1>
+<p>フロントエンドのプロジェクトは <a href="https://github.com/hu-hicoder/blog/tree/handson/blog-public/frontend">blog/blog-public/frontend</a> にあります。まずは</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="機能追加の種類を知る"><a class="header" href="#機能追加の種類を知る">機能追加の種類を知る</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="バックエンドを見てみよう"><a class="header" href="#バックエンドを見てみよう">バックエンドを見てみよう</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="フロントエンドに機能追加をしてみよう"><a class="header" href="#フロントエンドに機能追加をしてみよう">フロントエンドに機能追加をしてみよう</a></h1>
