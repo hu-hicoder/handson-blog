@@ -122,7 +122,7 @@ docker-backend-1  |                                     O\
 docker-backend-1  | ⇨ http server started on [::]:3001
 ```
 
-ブラウザで [http://localhost:3000/](http://localhost:3000/) にアクセスしてみてください。以下のような表示がされていればOKです。
+ブラウザで [http://localhost:3001/](http://localhost:3001/) にアクセスしてみてください。以下のような表示がされていればOKです。
 
 ![image-4](./img/image-4.jpg)
 
