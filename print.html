@@ -374,7 +374,7 @@ docker-backend-1  | ____________________________________O/_______
 docker-backend-1  |                                     O\
 docker-backend-1  | ⇨ http server started on [::]:3001
 </code></pre>
-<p>ブラウザで <a href="http://localhost:3000/">http://localhost:3000/</a> にアクセスしてみてください。以下のような表示がされていればOKです。</p>
+<p>ブラウザで <a href="http://localhost:3001/">http://localhost:3001/</a> にアクセスしてみてください。以下のような表示がされていればOKです。</p>
 <p><img src="./img/image-4.jpg" alt="image-4" /></p>
 <p>サーバを落とすときは、<code>Ctrl+c</code>で止めた後に</p>
 <pre><code>docker-compose down
@@ -425,14 +425,20 @@ dockerでblogの雛形を立ち上げて、ブラウザでアクセスして確�
 npmを導入して、フロントエンドサーバを立ち上げた</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="フロントエンドを見てみよう"><a class="header" href="#フロントエンドを見てみよう">フロントエンドを見てみよう</a></h1>
+<p>これまでで、環境構築は整っていて、バックエンドサーバとフロントエンドサーバを立ち上げて実際に動かしてみることができたと思います。</p>
 <p>ここでは以下のことが達成できればOKです。</p>
 <ul>
 <li><input disabled="" type="checkbox"/>
-フロントエンドがどういう仕組みで動いているのか知る</li>
+<a href="./chapter_3-intro.html">フロントエンドがどういう仕組みで動いているのか知る</a></li>
 <li><input disabled="" type="checkbox"/>
-初めに何からコードを読んでいけばいいのか知る</li>
+<a href="./chapter_3-starter.html">初めに何からコードを読んでいけばいいのか知る</a></li>
 <li><input disabled="" type="checkbox"/>
-機能追加の種類を知る</li>
+<a href="./chapter_3-todo.html">機能追加の種類を知る</a></li>
+</ul>
+<h2 id="確認テスト-8"><a class="header" href="#確認テスト-8">確認テスト</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"/>
+フロントエンドについてこれからどんなことを学ぶか分かった</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="フロントエンドがどういう仕組みで動いているのか知る"><a class="header" href="#フロントエンドがどういう仕組みで動いているのか知る">フロントエンドがどういう仕組みで動いているのか知る</a></h1>
 <p>ここではブログの雛形がどういう仕組みで動いているのか、フロントエンドの観点から学びます。</p>
@@ -440,7 +446,7 @@ npmを導入して、フロントエンドサーバを立ち上げた</li>
 <h2 id="サーバとクライアント"><a class="header" href="#サーバとクライアント">サーバとクライアント</a></h2>
 <p>ここでは、「サーバ」「クライアント」の二つの概念を元に説明します。</p>
 <p>サーバとは、雛形でいうところの <code>npm run dev</code> で立ち上げたフロントエンドサーバです。サーバは一般に、ネットワークを通じたなんらかのリクエストを受け取りレスポンスを返すプログラムを動かしたものです。プログラムを動かしたものをプロセスと言います。サーバは、実態としてはひとつまたは複数のプロセスが動いていて、リクエストがネットワークを通じて飛んでくるのを待っている状態になります。</p>
-<p>クライアントは、雛形でいうところのあなたのブラウザを指します。ブラウザから <a href="http://localhost:8080/">http://localhost:8080/</a> にアクセスして画面を見たと思います。この、ブラウザにURLを打ち込んだ後の処理で、ブラウザからフロントエンドサーバに向けてリクエストが飛んでいます。フロントエンドサーバはリクエストを待ち受けていますから、リクエストがやってきたらそのリクエストの内容に応じてレスポンスを返します。ここでは、htmlファイルというテキストファイルや、JavaScriptが書かれていたり、CSSの書かれているファイルをサーバが返し、クライアントであるブラウザ側で見ることになります。</p>
+<p>クライアントは、雛形でいうところのあなたのブラウザを指します。ブラウザから <a href="http://localhost:8080/">http://localhost:8080/</a> にアクセスして画面を見たと思います。この、ブラウザにURLを打ち込んだ後の処理で、ブラウザからフロントエンドサーバに向けてリクエストが飛んでいます。フロントエンドサーバはリクエストを待ち受けていますから、リクエストがやってきたらそのリクエストの内容に応じてレスポンスを返します。ここでは、htmlファイルというテキストファイルや、JavaScriptが書かれていたり、CSSが書かれているファイルをサーバが返し、クライアントであるブラウザ側で見ることになります。</p>
 <h2 id="typescript"><a class="header" href="#typescript">TypeScript</a></h2>
 <p>TypeScriptはJavaScriptに変換される言語のひとつです。AltJSのひとつという言い方をされることもあります。他のAltJSにはElm, Reasonなどがあります。</p>
 <p>特徴として、漸近的な静的型つけがなされていることがあげられます。通常の使い方をしていれば、JavaScriptに変換するタイミングでコードを書く人がミスをしていたらコンパイルエラーという形で指摘をしてくれます。</p>
@@ -464,7 +470,7 @@ npmを導入して、フロントエンドサーバを立ち上げた</li>
 </code></pre>
 <p>教材は <a href="https://zenn.dev/likr/articles/6be53ca64f29aa035f07">Reactチュートリアル1：犬画像ギャラリーを作ろう</a> が良い気がしますが、これも私はまだ通して読めてないので興味があれば一緒に輪読しましょう。</p>
 <p>以上でフロントエンドの仕組みは終わりです。次は具体的なコードを眺めていきましょう。</p>
-<h2 id="確認テスト-8"><a class="header" href="#確認テスト-8">確認テスト</a></h2>
+<h2 id="確認テスト-9"><a class="header" href="#確認テスト-9">確認テスト</a></h2>
 <ul>
 <li><input disabled="" type="checkbox"/>
 サーバとクライアントの概念が自分なりに説明できる</li>
@@ -474,8 +480,118 @@ TypeScriptとJavaScriptの関係が自分なりに説明できる</li>
 Reactについてなんとなく分かった</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="初めに何からコードを読んでいけばいいのか知る"><a class="header" href="#初めに何からコードを読んでいけばいいのか知る">初めに何からコードを読んでいけばいいのか知る</a></h1>
-<p>フロントエンドのプロジェクトは <a href="https://github.com/hu-hicoder/blog/tree/handson/blog-public/frontend">blog/blog-public/frontend</a> にあります。まずは</p>
+<p>ここでは、実際のフロントエンドのコードを読んでいきます。</p>
+<p>フロントエンドのプロジェクトは <a href="https://github.com/hu-hicoder/blog/tree/handson/blog-public/frontend">blog/blog-public/frontend</a> にあります。</p>
+<p>このフロントエンドのプロジェクトでは、<a href="https://www.npmjs.com/">npm</a> というパッケージ管理ツールを使用しています。また、言語は<a href="https://github.com/microsoft/TypeScript">TypeScript</a> ( <code>.ts</code>, <code>.tsx</code> )を主に使っていきます。</p>
+<p>npmや、yarnといったパッケージマネージャを使っていることが分かっていたら、 <code>package.json</code> という名前のファイルをまず初めに見ていくとよいでしょう。</p>
+<h2 id="packagejson-を読む"><a class="header" href="#packagejson-を読む">package.json を読む</a></h2>
+<p><a href="https://github.com/hu-hicoder/blog/blob/handson/blog-public/frontend/package.json">blog-public/frontend/package.json</a> を開いて見てみましょう。</p>
+<p>これはJSONという形式で開発時の設定が書かれています。色々なことが書かれていますが、今回は <a href="https://github.com/hu-hicoder/blog/blob/8c46b2c1abe519114d9ade779042fc8cc0fe5a78/blog-public/frontend/package.json#L6-L8"><code>scripts</code></a> の項目だけ着目します。</p>
+<p>ここには開発時のコマンドが書かれていて、自分で定義することができます。フロントエンドサーバを手元で立ち上げるときに <code>webpack-serve</code> というソフトウェアを使って <code>npx webpack serve --config webpack.config.js</code> のようにしてフロントエンドサーバを立ち上げているのですが、毎回このコマンドを打ち込むのは面倒です。そこで、このコマンドに <code>dev</code> というエイリアス(別名を割り当てる)をつけてあげて <code>npm run dev</code> というコマンドで簡単にフロントエンドサーバを立ち上げて開発できるようにしています。</p>
+<p>あとは <code>devDependencies</code> や <code>dependencies</code> では外部のライブラリを使っています。<code>devDependencies</code> は開発のときにしか使わないので最終的に本番環境にビルドするときには含まれず、 <code>dependencies</code> は本番環境にビルドする成果物に含まれます。これは後で機能追加を行うときに使う知識なので覚えておきましょう。</p>
+<p>これはプロジェクトごとに違いますが、今回は <code>src</code> ディレクトリの中にコードの本体があるのでそこを見ていきましょう。</p>
+<h2 id="srcの中を読む-apptsxを読む"><a class="header" href="#srcの中を読む-apptsxを読む">srcの中を読む: app.tsxを読む</a></h2>
+<p><a href="https://github.com/hu-hicoder/blog/tree/handson/blog-public/frontend/src">blog-public/frontend/src</a> を開いて見てみましょう。</p>
+<p>index.htmlというHTMLファイルを開くと、<code>id</code>が<code>app</code>のdiv要素がひとつだけあることが分かります。Reactは、このdiv要素に対して作用し、このdiv要素の中で文章を表示したり、ボタンを配置したりといったUI操作を行います。その作用するコードはどこかというと、<a href="https://github.com/hu-hicoder/blog/blob/handson/blog-public/frontend/src/app.tsx"><code>app.tsx</code></a> の中の<code>ReactDOM.render</code>にあたります。</p>
+<pre><code class="language-ts">ReactDOM.render(
+  &lt;React.StrictMode&gt;
+    &lt;HelloWorld /&gt;
+  &lt;/React.StrictMode&gt;,
+  document.getElementById(&quot;app&quot;) // ここでid=appの要素に対し作用している
+);
+</code></pre>
+<p>コードを読んでいくときは、VSCodeのコードジャンプを使うと楽です。Ctrlを押しながら知らない単語をクリックすると、そのコードが宣言されている場所に飛ぶことができます。(できないときもあります)</p>
+<p>例えば、<code>&lt;HelloWorld /&gt;</code> をCtrlを押しながらクリックしてみたときの様子です。</p>
+<p><img src="./img/image-6.jpg" alt="image-6" /></p>
+<p>ポップアップが表示されて、<code>HelloWorld</code>が宣言されている場所が表示されています。こうしてどんどん知らない変数は調べていきましょう。</p>
+<p>また、調べ方としては <code>import</code> を見るという手もあります。<code>import</code> は別ファイルで宣言された変数や関数をこのファイルで使います、という意味なので、定義を見るために別ファイルを見に行きましょう。</p>
+<p>今回は <code>HelloWorld.tsx</code> を見ていきます。<code>react</code>と<code>react-dom</code>は外部ライブラリなので、<code>src</code>内にはありません。</p>
+<h2 id="srcの中を読む-helloworldtsxを読む"><a class="header" href="#srcの中を読む-helloworldtsxを読む">srcの中を読む: HelloWorld.tsxを読む</a></h2>
+<p><a href="https://github.com/hu-hicoder/blog/blob/handson/blog-public/frontend/src/HelloWorld.tsx"><code>HelloWorld.tsx</code></a> を開いて見ていきましょう。</p>
+<p>ここでは詳しく立ち入りませんが、以下のキーワードを調べて理解すれば大丈夫です。もちろん、15分調べて分からなければdiscordで尋ねてみましょう。</p>
+<ul>
+<li><a href="https://typescript-jp.gitbook.io/deep-dive/type-system#eiriasutype-alias"><code>type</code></a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const"><code>const</code></a></li>
+<li><a href="https://ja.reactjs.org/docs/hooks-intro.html"><code>useState</code>, <code>useEffect</code></a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/async_function"><code>async</code>, <code>await</code></a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch"><code>fetch</code></a></li>
+<li><a href="https://ja.reactjs.org/docs/introducing-jsx.html">jsx</a></li>
+</ul>
+<p>これらを調べてみて、「HelloWorld関数はjsxを返していて、<code>http://localhost:3001</code>で立っているバックエンドサーバから受け取ったレスポンスをjsonに変換して<code>articles</code>変数にセットして描画している」ということが分かると理想的です。いきなりここまで理解するのは難しいと思うので、分からないことをひとつずつ丁寧に調べていきましょう。</p>
+<h2 id="確認テスト-10"><a class="header" href="#確認テスト-10">確認テスト</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"/>
+package.jsonについて自分なりに説明できる
+<ul>
+<li><input disabled="" type="checkbox"/>
+scriptsの項目の意味が説明できる</li>
+<li><input disabled="" type="checkbox"/>
+devDependencies, dependenciesの項目の意味が説明できる</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+コードジャンプを試してみた(VSCodeを利用している場合のみ)</li>
+<li><input disabled="" type="checkbox"/>
+<code>HelloWorld.tsx</code> の各項目を調べてなんとなく理解した</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="機能追加の種類を知る"><a class="header" href="#機能追加の種類を知る">機能追加の種類を知る</a></h1>
+<p>ここでは、どのように機能追加をしていけばいいかを学びます。</p>
+<p>機能追加をするとき、大きく分けて二つの方針があります。</p>
+<ul>
+<li>コードを書く。</li>
+<li>外部ライブラリを導入する。</li>
+</ul>
+<p>実際は、外部ライブラリを導入したらそのライブラリを使うためにコードを書く必要がありますが、ここでは、コードを書く流れと、外部ライブラリを導入する流れを分割して紹介します。</p>
+<h2 id="コードを書く"><a class="header" href="#コードを書く">コードを書く</a></h2>
+<p>Reactの紹介で、「データを元にしてUI描画を行う」というような話をしました。コードを追加するときも、基本的には <strong>「バックエンドサーバから得たjson形式のレスポンスを、うまく加工してUIに変換する」</strong> という作業が多いです。</p>
+<p>手順としては以下のようになります</p>
+<ul>
+<li>1: バックエンドサーバとの接続がうまくいっていることを確かめる</li>
+<li>2: フロントエンドでクライアントに対し何を返すべきか考える</li>
+<li>3: style, UIの調整</li>
+</ul>
+<p>1について、<code>HelloWorld.tsx</code> では以下の部分でバックエンドサーバとの通信を行っています</p>
+<pre><code class="language-ts">  useEffect(() =&gt; {
+    const load = async () =&gt; {
+      await fetch(&quot;http://localhost:3001/article&quot;) // ここでバックエンドサーバと通信
+        .then((res) =&gt; res.json())
+        .then((data) =&gt; setArticles(data[&quot;Articles&quot;]))
+        .catch((err) =&gt; new Error(&quot;Cannot Fetch&quot; + err));
+    }
+    load()
+  } , []);
+</code></pre>
+<p>そのため、バックエンドサーバのパス(<code>articles</code> から別のものに)を変えるだけで、最初のうちはこれをコピペしてちょっとだけ修正して使っていくのが良いと思います。</p>
+<p>2について、 <a href="https://github.com/hu-hicoder/blog/blob/8c46b2c1abe519114d9ade779042fc8cc0fe5a78/blog-public/frontend/src/HelloWorld.tsx#L15"><code>articles</code>の宣言箇所</a>から<code>articles</code>の型は <code>Article</code>の配列または<code>null</code>と分かります。そのため、以下の描画部分では、<code>item.ID</code>や<code>item.Author</code>などを使っていますが、これ以外にも <code>item.title</code> なども使うことができます。</p>
+<pre><code class="language-ts">  return (
+    &lt;&gt;
+      &lt;h1 className=&quot;hello&quot;&gt;Hello World!!&lt;/h1&gt;{&quot; &quot;}
+      {articles &amp;&amp; articles.map(item =&gt; &lt;div key={item.ID}&gt;Author: {item.Author} / Content: {item.Content}&lt;/div&gt;)}
+    &lt;/&gt;
+  );
+</code></pre>
+<p>3について、これは<a href="https://ja.reactjs.org/docs/faq-styling.html">CSSを当てていく</a>か、<a href="https://tailwindcss.com/">ライブラリを使うことに</a>なります。</p>
+<p>こうしてコードを書くとしても、どうしても個人では限界があります。そこで、フロントエンドではnpmを利用して外部ライブラリを導入することが一般的です。これを説明していきます。</p>
+<h2 id="外部ライブラリを導入する"><a class="header" href="#外部ライブラリを導入する">外部ライブラリを導入する</a></h2>
+<p>外部ライブラリを使うときは、例えば以下のような状況が考えられます。</p>
+<ul>
+<li>markdown形式でブログを書いて、HTMLでレンダリングさせたい。 → <a href="https://github.com/markdown-it/markdown-it">markdown-it</a> の利用</li>
+<li>useEffect周りをもっと簡潔に書きたい。特に、エラー周りをもっと楽に扱いたい。 → <a href="https://swr.vercel.app/ja">swr</a> の利用</li>
+<li>CSSをもっと楽な方法で書きたい → <a href="https://tailwindcss.com/docs/guides/create-react-app">Tailwind CSS</a></li>
+</ul>
+<p>他にも様々なライブラリがありますが、大抵は以下のコマンドで入ります。</p>
+<pre><code class="language-sh">npm install name-of-the-library # 本番環境でも使う
+npm install -D name-of-the-library # 開発でしか使わない
+</code></pre>
+<p>ライブラリを入れたら、 <code>import { name-of-function } from &quot;name-of-the-library&quot;</code> をtsxファイルの中に書いて使えるようになります。</p>
+<p>うまく行かない場合やよく分からない場合はその外部ライブラリのREADMEやdocumentを見るとよいでしょう。</p>
+<h2 id="確認テスト-11"><a class="header" href="#確認テスト-11">確認テスト</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"/>
+コードを書いて機能追加するときに、どこを変更していけばよいかのイメージがついた。</li>
+<li><input disabled="" type="checkbox"/>
+外部ライブラリが色々あることを知った。導入の仕方のイメージがついた。</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="バックエンドを見てみよう"><a class="header" href="#バックエンドを見てみよう">バックエンドを見てみよう</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="フロントエンドに機能追加をしてみよう"><a class="header" href="#フロントエンドに機能追加をしてみよう">フロントエンドに機能追加をしてみよう</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="バックエンドに機能追加をしてみよう"><a class="header" href="#バックエンドに機能追加をしてみよう">バックエンドに機能追加をしてみよう</a></h1>

@@ -135,6 +135,63 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="機能追加の種類を知る"><a class="header" href="#機能追加の種類を知る">機能追加の種類を知る</a></h1>
+<p>ここでは、どのように機能追加をしていけばいいかを学びます。</p>
+<p>機能追加をするとき、大きく分けて二つの方針があります。</p>
+<ul>
+<li>コードを書く。</li>
+<li>外部ライブラリを導入する。</li>
+</ul>
+<p>実際は、外部ライブラリを導入したらそのライブラリを使うためにコードを書く必要がありますが、ここでは、コードを書く流れと、外部ライブラリを導入する流れを分割して紹介します。</p>
+<h2 id="コードを書く"><a class="header" href="#コードを書く">コードを書く</a></h2>
+<p>Reactの紹介で、「データを元にしてUI描画を行う」というような話をしました。コードを追加するときも、基本的には <strong>「バックエンドサーバから得たjson形式のレスポンスを、うまく加工してUIに変換する」</strong> という作業が多いです。</p>
+<p>手順としては以下のようになります</p>
+<ul>
+<li>1: バックエンドサーバとの接続がうまくいっていることを確かめる</li>
+<li>2: フロントエンドでクライアントに対し何を返すべきか考える</li>
+<li>3: style, UIの調整</li>
+</ul>
+<p>1について、<code>HelloWorld.tsx</code> では以下の部分でバックエンドサーバとの通信を行っています</p>
+<pre><code class="language-ts">  useEffect(() =&gt; {
+    const load = async () =&gt; {
+      await fetch(&quot;http://localhost:3001/article&quot;) // ここでバックエンドサーバと通信
+        .then((res) =&gt; res.json())
+        .then((data) =&gt; setArticles(data[&quot;Articles&quot;]))
+        .catch((err) =&gt; new Error(&quot;Cannot Fetch&quot; + err));
+    }
+    load()
+  } , []);
+</code></pre>
+<p>そのため、バックエンドサーバのパス(<code>articles</code> から別のものに)を変えるだけで、最初のうちはこれをコピペしてちょっとだけ修正して使っていくのが良いと思います。</p>
+<p>2について、 <a href="https://github.com/hu-hicoder/blog/blob/8c46b2c1abe519114d9ade779042fc8cc0fe5a78/blog-public/frontend/src/HelloWorld.tsx#L15"><code>articles</code>の宣言箇所</a>から<code>articles</code>の型は <code>Article</code>の配列または<code>null</code>と分かります。そのため、以下の描画部分では、<code>item.ID</code>や<code>item.Author</code>などを使っていますが、これ以外にも <code>item.title</code> なども使うことができます。</p>
+<pre><code class="language-ts">  return (
+    &lt;&gt;
+      &lt;h1 className=&quot;hello&quot;&gt;Hello World!!&lt;/h1&gt;{&quot; &quot;}
+      {articles &amp;&amp; articles.map(item =&gt; &lt;div key={item.ID}&gt;Author: {item.Author} / Content: {item.Content}&lt;/div&gt;)}
+    &lt;/&gt;
+  );
+</code></pre>
+<p>3について、これは<a href="https://ja.reactjs.org/docs/faq-styling.html">CSSを当てていく</a>か、<a href="https://tailwindcss.com/">ライブラリを使うことに</a>なります。</p>
+<p>こうしてコードを書くとしても、どうしても個人では限界があります。そこで、フロントエンドではnpmを利用して外部ライブラリを導入することが一般的です。これを説明していきます。</p>
+<h2 id="外部ライブラリを導入する"><a class="header" href="#外部ライブラリを導入する">外部ライブラリを導入する</a></h2>
+<p>外部ライブラリを使うときは、例えば以下のような状況が考えられます。</p>
+<ul>
+<li>markdown形式でブログを書いて、HTMLでレンダリングさせたい。 → <a href="https://github.com/markdown-it/markdown-it">markdown-it</a> の利用</li>
+<li>useEffect周りをもっと簡潔に書きたい。特に、エラー周りをもっと楽に扱いたい。 → <a href="https://swr.vercel.app/ja">swr</a> の利用</li>
+<li>CSSをもっと楽な方法で書きたい → <a href="https://tailwindcss.com/docs/guides/create-react-app">Tailwind CSS</a></li>
+</ul>
+<p>他にも様々なライブラリがありますが、大抵は以下のコマンドで入ります。</p>
+<pre><code class="language-sh">npm install name-of-the-library # 本番環境でも使う
+npm install -D name-of-the-library # 開発でしか使わない
+</code></pre>
+<p>ライブラリを入れたら、 <code>import { name-of-function } from &quot;name-of-the-library&quot;</code> をtsxファイルの中に書いて使えるようになります。</p>
+<p>うまく行かない場合やよく分からない場合はその外部ライブラリのREADMEやdocumentを見るとよいでしょう。</p>
+<h2 id="確認テスト"><a class="header" href="#確認テスト">確認テスト</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"/>
+コードを書いて機能追加するときに、どこを変更していけばよいかのイメージがついた。</li>
+<li><input disabled="" type="checkbox"/>
+外部ライブラリが色々あることを知った。導入の仕方のイメージがついた。</li>
+</ul>
 
                     </main>
 
